@@ -22,7 +22,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ('ADMIN', 'Admin'),
         ('DOCTOR', 'Doctor'),
         ('RECEPTIONIST', 'Receptionist'),
-        ('LAB', 'Lab Staff')
+        ('LAB', 'Lab Staff'),
     ]
 
     email = models.EmailField(unique=True)
@@ -33,3 +33,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    def __str__(self):
+        return self.email
