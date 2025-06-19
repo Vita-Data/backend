@@ -1,4 +1,4 @@
-# Vita Data - Healthcare Backend (FastAPI/CouchDB Ready Phase-1)
+# Vita Data - Healthcare Backend
 
 ## Clone the Repository
 
