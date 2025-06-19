@@ -30,3 +30,7 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
+
+superuser_cred = admin@test.com
+pass = admin123
+{"email":"doctor1@example.com","role":"DOCTOR"}
