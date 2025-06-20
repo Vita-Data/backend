@@ -1,8 +1,18 @@
 # patients/views.py
 
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework import viewsets, mixins
+from .models import Patient
+from .serializers import PatientSerializer
+from .permissions import Permission
 
-@api_view(['GET'])
-def patient_summary(request):
-    return Response({"message": "Patient summary placeholder"})
+class PatientViewSet(mixins.CreateModelMixin,
+                     mixins.ListModelMixin,
+                     viewsets.GenericViewSet):
+        
+        """
+        Allows cresting and listing patiens with (restricted to DOCTOR and RECEPTIOIST)
+        """
+        
+        queryset = Patient.objects.all()
+        serializer_class = PatientSerializer
+        permission_classes = [Permission]
