@@ -8,5 +8,5 @@ class Permission(BasePermission):
         return (
             request.user and
             request.user.is_authenticated and
-            request.user.role in ['DOCTOR', 'RECEPTIONIST']
+            request.user.role in ['DOCTOR', 'RECEPTIONIST','ADMIN']
         )
