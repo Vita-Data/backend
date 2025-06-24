@@ -1,8 +1,11 @@
-# lab_reports/urls.py
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import PatientViewSet, LabTestReportViewSet
 
-from django.urls import path
-from . import views
+router = DefaultRouter()
+router.register(r'patients', PatientViewSet)
+router.register(r'reports', LabTestReportViewSet)
 
 urlpatterns = [
-    path('', views.sample_report_view),  # change to actual view name
+    path('', include(router.urls)),
 ]
