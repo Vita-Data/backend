@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-
+from patients.models import Patient 
 
 
 class Bill(models.Model):
@@ -16,9 +16,9 @@ class Bill(models.Model):
     bill_amount = models.DecimalField(max_digits=10, decimal_places=2)
     bill_date = models.DateField(default=timezone.now)
     
-    # patient = models.ForeignKey('Patient', on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='bills')
     # appointment = models.ForeignKey('Appointment', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Bill #{self.bill_number} for {self.patient}"
+        return f"Bill #{self.bill_number} for {self.patient.name}"
 
