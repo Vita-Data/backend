@@ -1,8 +1,7 @@
-# billing/urls.py
-
 from django.urls import path
-from . import views
+from .views import BillListCreateView, BillDetailView
 
 urlpatterns = [
-    path('', views.test_billing),  # just a dummy endpoint
+    path('bills/', BillListCreateView.as_view(), name='bill-list-create'),         
+    path('bills/<str:bill_number>/', BillDetailView.as_view(), name='bill-detail'), 
 ]
