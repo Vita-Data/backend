@@ -3,5 +3,5 @@ from .models import Appointment
 
 class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
-        moodel = Appointment
+        model = Appointment
         fields = '__all__'
