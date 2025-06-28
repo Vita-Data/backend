@@ -1,8 +1,8 @@
 # appointments/urls.py
 
 from django.urls import path
-from .views import appointments_handler
+from .views import AppointmentListCreateView
 
 urlpatterns = [
-    path('appointments/', appointments_handler),  # POST, GET, filter by doctor/patient/date
+    path('appointments/', AppointmentListCreateView.as_view(), name = 'appointments'),  # POST, GET, filter by doctor/patient/date
 ]
