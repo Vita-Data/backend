@@ -9,10 +9,8 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 @api_view(['POST'])
-@permission_classes([permissions.IsAuthenticated])
+@permission_classes([permissions.AllowAny])
 def register_user(request):
-    if request.user.role != 'ADMIN':
-        return Response({"error": "Only Admin can create users"}, status=403)
     serializer = RegisterSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
