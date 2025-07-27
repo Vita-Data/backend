@@ -601,4 +601,4 @@ For issues with the deployed API:
 
 **Last Updated**: January 2024
 **API Version**: 1.0
-**Deployment URL**: https://backend-k5a7.onrender.com/ 
+**Deployment URL**: https://backend-k5a7.onrender.com/
